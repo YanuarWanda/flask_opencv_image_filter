@@ -16,8 +16,9 @@ body {
 
 main {
     display: grid;
-    grid-template-columns: repeat(2, auto);
+    grid-template-columns: repeat(2, 1fr);
     gap: 4rem;
+    font-size: 1rem;
 
     width: fit-content;
     margin: 0 auto;
