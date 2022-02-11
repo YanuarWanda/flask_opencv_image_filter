@@ -1,7 +1,6 @@
-from flask import Blueprint, render_template, request, json, make_response
+from flask import Blueprint, render_template, request, make_response
 import cv2
 import numpy as np
-import base64
 
 def grayscale(img):
     grayscale = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
