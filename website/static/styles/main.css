@@ -42,11 +42,15 @@ main {
     box-shadow: 0 5px 10px rgba(154,160,185,.025), 0 15px 40px rgba(166,173,201,.2);
 }
 
-.original-container img, .result-container img {
-    max-width: 320px;
-    aspect-ratio: 1 / 1;
+.original-container .image-container, .result-container .image-container {
     border: 1px solid #e6dcdc;
     border-radius: 16px;
+}
+
+.image-container > img {
+    width: 100%;
+    max-width: 320px;
+    height: auto;
 }
 
 /* Loading */
