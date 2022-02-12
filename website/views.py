@@ -1,6 +1,7 @@
 from flask import Blueprint, render_template, request, make_response
 import cv2
 import numpy as np
+import base64
 
 def grayscale(img):
     return cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
@@ -69,6 +70,6 @@ def home():
 
         image = cv2.imencode('.png', result)[1]
 
-        return make_response(image.tobytes())
+        return make_response(base64.b64encode(image.tobytes()))
     else:
         return render_template("home.html")
