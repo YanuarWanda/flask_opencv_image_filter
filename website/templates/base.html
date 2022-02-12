@@ -8,7 +8,26 @@
     <title>{% block title %}{% endblock %}</title>
 </head>
 <body>
+    <div id="loading" class="loading d-none">
+        <div class="box">
+            <div class="cat">
+                <div class="cat__body"></div>
+                <div class="cat__body"></div>
+                <div class="cat__tail"></div>
+                <div class="cat__head"></div>
+            </div>
+            <p>Mohon bersabar, ini gratisan...</p>
+        </div>
+    </div>
     {% block content %}{% endblock %}
+
+    <script>
+        const setLoading = state => {
+            const loadingEl = document.querySelector("#loading");
+            loadingEl.classList.remove(state ? "d-none" : "d-block");
+            loadingEl.classList.add(state ? "d-block" : "d-none");
+        }
+    </script>
     {% block script %}{% endblock %}
 </body>
 </html>
