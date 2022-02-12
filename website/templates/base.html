@@ -24,8 +24,8 @@
     <script>
         const setLoading = state => {
             const loadingEl = document.querySelector("#loading");
-            loadingEl.classList.remove(state ? "d-none" : "d-block");
-            loadingEl.classList.add(state ? "d-block" : "d-none");
+            loadingEl.classList.remove(state ? "d-none" : "d-flex");
+            loadingEl.classList.add(state ? "d-flex" : "d-none");
         }
     </script>
     {% block script %}{% endblock %}
