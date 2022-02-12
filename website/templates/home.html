@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 
-{% block title %} Home {% endblock %}
+{% block title %} Image Filter {% endblock %}
 
 {% block content %}
 <main>
@@ -12,7 +12,21 @@
             <option value="1" selected>Grayscale</option>
             <option value="2">Bright</option>
             <option value="3">Dark</option>
-            <option value="4">Filter 4</option>
+
+            <optgroup label="Edge Detection">
+                <option value="4">Laplacian</option>
+                <option value="5">Sobel X</option>
+                <option value="6">Sobel Y</option>
+                <option value="7">Sobel XY</option>
+                <option value="8">Canny</option>
+            </optgroup>
+
+            <optgroup label="Blur">
+                <option value="9">Averaging</option>
+                <option value="10">Gaussian</option>
+                <option value="11">Median</option>
+                <option value="12">Bilateral Filter</option>
+            </optgroup>
         </select>
     </form>
 
@@ -42,7 +56,10 @@
             method: "POST",
             body: formData
         });
-        if (res.status != 200) return;
+        if (res.status != 200) {
+            setLoading(false);
+            return;
+        }
         const data = await res.blob();
         resultImageEl.setAttribute("src", URL.createObjectURL(data));
 
